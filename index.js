@@ -1,21 +1,29 @@
 
-// GENERATING TWO RANDOM NUMBER IN THE RANGE OF 1 AND 6
-var randomnumber1 = (Math.floor(Math.random() * (6) + 1));
-var randomnumber2 = (Math.floor(Math.random() * (6) + 1));
+var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
 
-// COMPARISON AND DECLARING A WINNER
-if(randomnumber1 > randomnumber2){
-    document.querySelector("h1").innerHTML= "🚩Player 1 wins!";
-}else if(randomnumber1 === randomnumber2){
-    document.querySelector("h1").innerHTML= "Draw!";
-}else{
-    document.querySelector("h1").innerHTML= "🚩Player 2 wins!";
+var randomDiceImage = "dice" + randomNumber1 + ".png"; //dice1.png - dice6.png
+
+var randomImageSource = "images/" + randomDiceImage; //images/dice1.png - images/dice6.png
+
+var image1 = document.querySelectorAll("img")[0];
+
+image1.setAttribute("src", randomImageSource);
+
+
+var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
+
+document.querySelectorAll("img")[1].setAttribute("src", randomImageSource2);
+
+
+//If player 1 wins
+if (randomNumber1 > randomNumber2) {
+  document.querySelector("h1").innerHTML = "🚩 Play 1 Wins!";
 }
-
-// MAKING THE IMAGES CHANGE ACCORDING TO THE DICE ROLL
-var i1="images/dice" + randomnumber1 + ".png";
-var i2="images/dice" + randomnumber2 + ".png";
-
-// CHANGING THE TITLE BASED ON THE CONDITIONS
-document.querySelector(".img1").setAttribute("src", i1);
-document.querySelector(".img2").setAttribute("src", i2);
+else if (randomNumber2 > randomNumber1) {
+  document.querySelector("h1").innerHTML = "Player 2 Wins! 🚩";
+}
+else {
+  document.querySelector("h1").innerHTML = "Draw!";
+}
